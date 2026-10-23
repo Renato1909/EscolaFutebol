@@ -1,353 +1,142 @@
-# EscolaFutebol
-# ⚽ EscolaFut — Sistema de Gerenciamento para Escola de Futebol
+# EscolaFut — Sistema de Gerenciamento de Escola de Futebol
 
-Sistema desktop desenvolvido em **Java** para gerenciamento de uma escola de futebol, utilizando **Java Swing**, **JDBC** e **MySQL**.
+Aplicação desktop acadêmica para organizar as principais rotinas administrativas de uma escola de futebol. O sistema permite manter os registros de alunos, treinadores, turmas, matrículas e pagamentos em uma interface Java Swing, com persistência em Microsoft SQL Server por meio de JDBC.
 
-O projeto foi desenvolvido a partir do estudo de caso **Escola de Futebol Craques do Futuro**, com o objetivo de substituir controles realizados manualmente em planilhas por uma aplicação integrada capaz de armazenar, consultar e gerenciar as principais informações da escola.
+O projeto foi desenvolvido para praticar programação orientada a objetos, interfaces gráficas, operações CRUD e modelagem de banco de dados relacional.
 
-## 📌 Sobre o projeto
+## Funcionalidades
 
-A Escola de Futebol Craques do Futuro necessita controlar informações relacionadas aos seus alunos, treinadores, turmas, matrículas e pagamentos.
+- **Alunos:** cadastro, consulta, edição e exclusão de registros.
+- **Treinadores:** manutenção dos dados dos profissionais e suas especialidades.
+- **Turmas:** controle de faixa etária, dia, horário, capacidade e treinador responsável.
+- **Matrículas:** associação de alunos a turmas e controle da situação da matrícula.
+- **Pagamentos:** registro de vencimento, data de pagamento, valor e situação do pagamento.
+- **Interface desktop:** menu principal e telas de gerenciamento feitas com Java Swing (`JFrame`, campos de texto, botões e tabelas).
+- **Persistência relacional:** operações SQL via JDBC e `PreparedStatement`, com chaves primárias, chaves estrangeiras e restrições definidas no banco.
 
-O **EscolaFut** propõe a centralização desses dados em um banco de dados relacional, disponibilizando uma aplicação desktop desenvolvida em Java para realização das principais operações de gerenciamento.
+## Tecnologias
 
-O sistema utiliza o padrão **CRUD (Create, Read, Update e Delete)**, permitindo cadastrar, consultar, atualizar e excluir registros através de uma interface gráfica.
+- Java 21
+- Java Swing (`JFrame`)
+- JDBC
+- Microsoft SQL Server
+- Microsoft JDBC Driver for SQL Server 13.6.0
+- Maven (`pom.xml`) e configuração para Apache NetBeans
 
-## 🎯 Objetivo
-
-Desenvolver um sistema de gerenciamento para uma escola de futebol que permita organizar e administrar informações de maneira centralizada, reduzindo a dependência de planilhas e facilitando o acesso aos dados.
-
-### Objetivos específicos
-
-- Gerenciar alunos cadastrados na escola;
-- Gerenciar treinadores;
-- Organizar as turmas;
-- Controlar matrículas;
-- Registrar e acompanhar pagamentos;
-- Permitir operações de cadastro, consulta, alteração e exclusão;
-- Integrar a aplicação Java a um banco de dados MySQL;
-- Aplicar conceitos de programação orientada a objetos;
-- Utilizar JDBC para comunicação entre a aplicação e o banco de dados.
-
-## 🛠️ Tecnologias utilizadas
-
-- **Java**
-- **Java Swing**
-- **JDBC (Java Database Connectivity)**
-- **MySQL 8**
-- **MySQL Connector/J 8.0.31**
-- **Apache NetBeans**
-- **SQL**
-- **Ant**
-
-## 🗂️ Estrutura do projeto
+## Organização do projeto
 
 ```text
 EscolaFut/
-│
-├── src/
-│   ├── conexao/
-│   │   └── Conexao.java
-│   │
-│   ├── controle/
-│   │   ├── MenuPrincipal.java
-│   │   ├── TelaAluno.java
-│   │   ├── TelaTreinador.java
-│   │   ├── TelaTurma.java
-│   │   ├── TelaMatricula.java
-│   │   └── TelaPagamento.java
-│   │
-│   ├── dao/
-│   │   └── classes responsáveis pelo acesso aos dados
-│   │
-│   └── modelo/
-│       └── classes de domínio do sistema
-│
 ├── database/
-│   └── escola_futebol.sql
-│
-├── documentacao/
-│   └── documentação do projeto
-│
-├── lib/
-│   └── mysql-connector-j-8.0.31.jar
-│
-├── nbproject/
-├── build.xml
+│   └── escola_futebol.sql       # Criação do banco, tabelas e dados de demonstração
+├── documentacao/                # Especificação, modelo lógico e diagramas
+├── lib/                         # Driver JDBC do SQL Server
+├── src/
+│   ├── conexao/                  # Conexão com o banco
+│   ├── controle/                 # Menu e telas Swing
+│   ├── dao/                      # Consultas e operações CRUD
+│   └── modelo/                   # Classes do domínio
+├── nbproject/                    # Configuração do projeto no NetBeans
+├── build.xml                     # Build do NetBeans/Ant
+├── pom.xml                       # Configuração Maven
 └── README.md
 ```
 
-## 🧩 Módulos do sistema
+### Arquitetura em camadas
 
-### 👨‍🎓 Alunos
+O fluxo principal da aplicação é:
 
-Responsável pelo gerenciamento dos alunos matriculados na escola.
+`Tela Swing (controle) → DAO → Conexao/JDBC → SQL Server`
 
-Permite realizar operações de cadastro, consulta, alteração e exclusão de alunos.
+As classes em `modelo` representam os dados do domínio. As classes em `dao` concentram os comandos SQL, enquanto `conexao/Conexao.java` administra a conexão JDBC.
 
-### 🧑‍🏫 Treinadores
+## Modelo de domínio
 
-Responsável pelo cadastro e gerenciamento dos treinadores da escola.
+O banco mantém os seguintes relacionamentos principais:
 
-Cada treinador pode estar associado às turmas pelas quais é responsável.
+- Um treinador pode ser responsável por várias turmas.
+- Uma matrícula relaciona um aluno a uma turma.
+- Um aluno não pode ter duas matrículas para a mesma turma, conforme a restrição de unicidade do banco.
+- Cada pagamento pertence a uma matrícula.
+- Restrições no banco validam, entre outros pontos, a capacidade da turma, a situação de matrículas e pagamentos, e o valor não negativo dos pagamentos.
 
-### ⚽ Turmas
+![Diagrama de classes do domínio](documentacao/diagrama-classes/dominio.png)
 
-Permite organizar as turmas oferecidas pela escola, mantendo informações necessárias para sua identificação e relacionamento com treinadores e matrículas.
+## Pré-requisitos
 
-### 📝 Matrículas
+Antes de executar o sistema, instale ou configure:
 
-Responsável por relacionar os alunos às respectivas turmas.
+1. **JDK 21**.
+2. **Microsoft SQL Server** (por exemplo, SQL Server Express) em execução e acessível pela aplicação.
+3. **SQL Server Management Studio (SSMS)** ou outra ferramenta capaz de executar o script SQL.
+4. **Apache NetBeans** ou **IntelliJ IDEA**.
+5. O driver `lib/mssql-jdbc-13.6.0.jre11.jar`, já incluído nesta distribuição.
 
-A matrícula funciona como uma das principais ligações entre os diferentes módulos do sistema.
+O login usado pela aplicação precisa ter permissão para conectar-se ao SQL Server e ler e gravar na base `EscolaFutebol`.
 
-### 💳 Pagamentos
+## Configurar o banco de dados
 
-Permite registrar e consultar informações financeiras relacionadas às matrículas dos alunos.
+1. Inicie o serviço do SQL Server.
+2. Abra o arquivo [`database/escola_futebol.sql`](database/escola_futebol.sql) no SSMS.
+3. Execute o script em uma base nova/vazia. Ele cria a base `EscolaFutebol`, as cinco tabelas (`Aluno`, `Treinador`, `Turma`, `Matricula` e `Pagamento`) e inclui um treinador e um aluno para demonstração.
+4. Confirme que a base e as tabelas foram criadas antes de iniciar o aplicativo.
 
-## 🗄️ Banco de dados
+**Atenção:** o script verifica se a base existe, mas as instruções `CREATE TABLE` não recriam tabelas existentes. Não execute o script novamente sobre uma base que já contenha essas tabelas sem antes avaliar o estado do banco.
 
-O sistema utiliza o banco de dados **MySQL**.
+## Configurar a conexão
 
-O banco principal possui as seguintes tabelas:
+A aplicação obtém as credenciais de variáveis de ambiente, evitando deixar a senha diretamente no código.
 
-```text
-aluno
-treinador
-turma
-matricula
-pagamento
-```
+| Variável | Obrigatória? | Finalidade |
+|---|---|---|
+| `ESCOLAFUT_SQLSERVER_USER` | Sim | Login SQL Server utilizado pela aplicação |
+| `ESCOLAFUT_SQLSERVER_PASSWORD` | Sim | Senha desse login |
+| `ESCOLAFUT_SQLSERVER_URL` | Não | URL JDBC; se omitida, usa o endereço padrão abaixo |
 
-Os principais relacionamentos podem ser representados de forma simplificada como:
-
-```text
-TREINADOR
-    │
-    └──< TURMA
-           │
-           └──< MATRICULA >── ALUNO
-                    │
-                    └──< PAGAMENTO
-```
-
-Assim, um treinador pode estar relacionado a turmas, alunos podem possuir matrículas, as matrículas relacionam alunos e turmas e os pagamentos ficam associados às respectivas matrículas.
-
-## 🚀 Como executar
-
-### Pré-requisitos
-
-Antes de executar o projeto, tenha instalado:
-
-- Java Development Kit (JDK);
-- Apache NetBeans;
-- MySQL Server 8.x;
-- MySQL Workbench.
-
-O **MySQL Connector/J 8.0.31** já está disponível na pasta `lib` do projeto.
-
-### 1. Clone o repositório
-
-```bash
-git clone URL_DO_SEU_REPOSITORIO
-```
-
-Ou faça o download do projeto em formato ZIP.
-
-### 2. Configure o banco de dados
-
-Abra o **MySQL Workbench** e conecte-se à sua instância local do MySQL.
-
-Depois abra:
+URL padrão:
 
 ```text
-database/escola_futebol.sql
+jdbc:sqlserver://localhost:1433;databaseName=EscolaFutebol;encrypt=true;trustServerCertificate=true
 ```
 
-Execute o script completo.
-
-Ele será responsável pela criação do banco:
+Se a instalação usar uma instância nomeada ou uma porta diferente, defina `ESCOLAFUT_SQLSERVER_URL` com a URL JDBC adequada. Por exemplo, para uma instância local chamada `SQLEXPRESS`:
 
 ```text
-escola_futebol
+jdbc:sqlserver://localhost;instanceName=SQLEXPRESS;databaseName=EscolaFutebol;encrypt=true;trustServerCertificate=true
 ```
 
-e das tabelas necessárias para funcionamento da aplicação.
+No Windows, adicione as três variáveis nas variáveis de ambiente do usuário e reinicie a IDE para que ela receba os novos valores. A URL de exemplo com `trustServerCertificate=true` destina-se a configurações locais de desenvolvimento; em ambientes de produção, configure e valide corretamente o certificado TLS do servidor.
 
-### 3. Configure a conexão
+**Segurança:** nunca publique a senha real, nem a inclua em arquivos versionados, prints ou documentação do repositório.
 
-Abra:
+## Executar a aplicação
 
-```text
-src/conexao/Conexao.java
-```
+### IntelliJ IDEA
 
-Confira as configurações de conexão com seu MySQL.
+1. Abra a pasta do projeto que contém o arquivo `pom.xml`.
+2. Configure o **Project SDK** como JDK 21 e aguarde a sincronização do Maven.
+3. Confirme que o arquivo do driver está presente em `lib/mssql-jdbc-13.6.0.jre11.jar`.
+4. Configure as variáveis de ambiente de conexão e reinicie a IDE.
+5. Abra `src/controle/MenuPrincipal.java` e execute o método `main` da classe `controle.MenuPrincipal`.
 
-Exemplo:
+Consulte também [`README_INTELLIJ.md`](README_INTELLIJ.md) para orientações específicas do IntelliJ.
 
-```java
-private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-private static final String USUARIO = "root";
-private static final String SENHA = "";
-```
+### Apache NetBeans
 
-A URL deve apontar para o banco `escola_futebol` no servidor MySQL configurado.
+1. Abra a pasta do projeto no NetBeans como projeto Java existente.
+2. Selecione o JDK 21 nas configurações do projeto.
+3. Confirme que o driver JDBC está no classpath.
+4. Configure as variáveis de ambiente antes de abrir/reiniciar o NetBeans.
+5. Execute o projeto, cuja classe principal é `controle.MenuPrincipal`.
 
-Por padrão, o projeto utiliza:
+## Documentação adicional
 
-```text
-Host: 127.0.0.1
-Porta: 3306
-Banco: escola_futebol
-Usuário: root
-```
+- [`INTERFACE_ACADEMICA.md`](INTERFACE_ACADEMICA.md) — componentes Swing e organização da interface.
+- [`documentacao/01_ESPECIFICACAO_PARTE_2.md`](documentacao/01_ESPECIFICACAO_PARTE_2.md) — estudo de caso e requisitos.
+- [`documentacao/02_DER_E_MODELO_LOGICO.md`](documentacao/02_DER_E_MODELO_LOGICO.md) — diagrama entidade-relacionamento e modelo lógico.
+- [`documentacao/03_UML_BASE.md`](documentacao/03_UML_BASE.md) — referência de modelagem UML.
+- [`database/escola_futebol.sql`](database/escola_futebol.sql) — estrutura do banco de dados.
 
-> **Importante:** não publique sua senha real do MySQL no GitHub.
+## Escopo
 
-Configure a senha apenas no ambiente local ou utilize uma solução apropriada para armazenar credenciais fora do código-fonte.
-
-### 4. Abra no Apache NetBeans
-
-No NetBeans:
-
-```text
-File → Open Project
-```
-
-Selecione a pasta do projeto `EscolaFut`.
-
-### 5. Compile o projeto
-
-Utilize:
-
-```text
-Run → Clean and Build Project
-```
-
-ou:
-
-```text
-Shift + F11
-```
-
-A compilação deverá terminar com:
-
-```text
-BUILD SUCCESSFUL
-```
-
-### 6. Execute
-
-A classe principal da aplicação é:
-
-```text
-controle.MenuPrincipal
-```
-
-Execute o projeto pelo NetBeans para abrir o menu principal do sistema.
-
-## 🔌 Conexão JDBC
-
-A comunicação entre Java e MySQL é realizada através do **JDBC**.
-
-O projeto utiliza:
-
-```java
-com.mysql.cj.jdbc.Driver
-```
-
-com o **MySQL Connector/J 8.0.31**.
-
-A arquitetura simplificada da comunicação é:
-
-```text
-Interface Java Swing
-        │
-        ▼
-      DAO
-        │
-        ▼
-      JDBC
-        │
-        ▼
-MySQL Connector/J
-        │
-        ▼
-MySQL Server
-        │
-        ▼
-escola_futebol
-```
-
-## 🏗️ Organização do código
-
-O projeto foi dividido em diferentes pacotes para separar responsabilidades.
-
-### `modelo`
-
-Contém as classes que representam as entidades do sistema, como aluno, treinador, turma, matrícula e pagamento.
-
-### `dao`
-
-Contém as classes responsáveis pela comunicação entre os objetos Java e o banco de dados.
-
-### `conexao`
-
-Responsável pela configuração e gerenciamento da conexão JDBC com o MySQL.
-
-### `controle`
-
-Contém as telas e componentes responsáveis pela interação do usuário com a aplicação.
-
-## 🔄 CRUD
-
-Os módulos do sistema foram estruturados em torno das quatro operações fundamentais:
-
-| Operação | Descrição |
-|---|---|
-| Create | Cadastro de novos registros |
-| Read | Consulta e listagem dos registros |
-| Update | Alteração de informações existentes |
-| Delete | Exclusão de registros |
-
-## 📚 Conceitos aplicados
-
-Durante o desenvolvimento são utilizados conceitos como:
-
-- Programação Orientada a Objetos;
-- Classes e objetos;
-- Herança;
-- Encapsulamento;
-- Associação entre classes;
-- Banco de dados relacional;
-- Chaves primárias;
-- Chaves estrangeiras;
-- Integridade referencial;
-- SQL;
-- JDBC;
-- DAO;
-- CRUD;
-- Interfaces gráficas com Java Swing.
-
-## 📖 Contexto acadêmico
-
-Este projeto foi desenvolvido como atividade acadêmica a partir do estudo de caso **Escola de Futebol Craques do Futuro**.
-
-A proposta envolve o desenvolvimento progressivo de um sistema Java integrado a banco de dados, passando pelas etapas de levantamento e documentação de requisitos, modelagem do banco de dados, implementação SQL, modelagem UML e desenvolvimento da aplicação.
-
-## 🔒 Segurança
-
-Credenciais pessoais de banco de dados não devem ser enviadas ao repositório.
-
-Antes de realizar um commit, certifique-se de que arquivos contendo senhas, tokens ou outras informações privadas não estejam sendo publicados.
-
-## 📄 Status do projeto
-
-🚧 **Em desenvolvimento**
-
-A estrutura principal do sistema, banco de dados, conexão JDBC e módulos CRUD estão sendo implementados e testados.
-
-## 👨‍💻 Autor
-
-Desenvolvido como projeto acadêmico para a disciplina de Desenvolvimento de Sistemas.
+Esta versão é uma aplicação desktop para fins acadêmicos e de demonstração. Não inclui portal web, aplicativo móvel nem integração real com serviços bancários ou fiscais. Para uso em produção, seriam necessários requisitos adicionais de segurança, testes, gestão de configuração e operação.
