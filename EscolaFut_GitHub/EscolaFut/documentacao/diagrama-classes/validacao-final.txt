@@ -1,0 +1,8 @@
+OK: todos os 12 arquivos obrigatorios e auxiliares existem e nao estao vazios.
+OK: SHA-256 dos 23 arquivos de entrada preservados (21 Java, DDL e pom.xml).
+OK: seis classes, 25 atributos, 54 operacoes presentes na fonte e no SVG.
+OK: tres compartimentos por classe; Pessoa em italico; duas generalizacoes; quatro associacoes 1 para 0..*.
+OK: PNG 4800 x 7290 com 300 dpi; SVG XML valido, viewBox 1600 x 2430.
+OK: detalhes da geometria registrados em validacao-geometria.txt.
+Revisao visual realizada no PNG; sem cortes ou sobreposicoes visiveis.
+Escopo: arquivo-fonte PlantUML; nao se trata de arquivo nativo Astah.

@@ -1,0 +1,139 @@
+@startuml dominio
+' Gerado exclusivamente de src/modelo da versao principal.
+top to bottom direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam roundcorner 0
+skinparam classAttributeIconSize 0
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam classBackgroundColor white
+skinparam classBorderColor #222222
+skinparam classFontColor black
+skinparam classFontStyle bold
+skinparam ArrowColor #222222
+skinparam linetype ortho
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam dpi 300
+hide circle
+
+abstract class Pessoa {
+  - id: int
+  - nome: String
+  - telefone: String
+  - email: String
+  --
+  # Pessoa()
+  # Pessoa(id: int, nome: String, telefone: String, email: String)
+  + getId(): int
+  + setId(id: int): void
+  + getNome(): String
+  + setNome(nome: String): void
+  + getTelefone(): String
+  + setTelefone(telefone: String): void
+  + getEmail(): String
+  + setEmail(email: String): void
+}
+
+class Aluno {
+  - dataNascimento: LocalDate
+  - responsavel: String
+  --
+  + Aluno()
+  + getDataNascimento(): LocalDate
+  + setDataNascimento(dataNascimento: LocalDate): void
+  + getResponsavel(): String
+  + setResponsavel(responsavel: String): void
+}
+
+class Treinador {
+  - especialidade: String
+  --
+  + Treinador()
+  + getEspecialidade(): String
+  + setEspecialidade(especialidade: String): void
+}
+
+class Turma {
+  - idTurma: int
+  - nome: String
+  - faixaEtaria: String
+  - diaSemana: String
+  - horario: LocalTime
+  - capacidade: int
+  - idTreinador: int
+  --
+  + getIdTurma(): int
+  + setIdTurma(idTurma: int): void
+  + getNome(): String
+  + setNome(nome: String): void
+  + getFaixaEtaria(): String
+  + setFaixaEtaria(faixaEtaria: String): void
+  + getDiaSemana(): String
+  + setDiaSemana(diaSemana: String): void
+  + getHorario(): LocalTime
+  + setHorario(horario: LocalTime): void
+  + getCapacidade(): int
+  + setCapacidade(capacidade: int): void
+  + getIdTreinador(): int
+  + setIdTreinador(idTreinador: int): void
+}
+
+class Matricula {
+  - idMatricula: int
+  - dataMatricula: LocalDate
+  - situacao: String
+  - idAluno: int
+  - idTurma: int
+  --
+  + getIdMatricula(): int
+  + setIdMatricula(idMatricula: int): void
+  + getDataMatricula(): LocalDate
+  + setDataMatricula(dataMatricula: LocalDate): void
+  + getSituacao(): String
+  + setSituacao(situacao: String): void
+  + getIdAluno(): int
+  + setIdAluno(idAluno: int): void
+  + getIdTurma(): int
+  + setIdTurma(idTurma: int): void
+}
+
+class Pagamento {
+  - idPagamento: int
+  - vencimento: LocalDate
+  - dataPagamento: LocalDate
+  - valor: BigDecimal
+  - situacao: String
+  - idMatricula: int
+  --
+  + getIdPagamento(): int
+  + setIdPagamento(idPagamento: int): void
+  + getVencimento(): LocalDate
+  + setVencimento(vencimento: LocalDate): void
+  + getDataPagamento(): LocalDate
+  + setDataPagamento(dataPagamento: LocalDate): void
+  + getValor(): BigDecimal
+  + setValor(valor: BigDecimal): void
+  + getSituacao(): String
+  + setSituacao(situacao: String): void
+  + getIdMatricula(): int
+  + setIdMatricula(idMatricula: int): void
+}
+
+Pessoa <|-- Aluno
+Pessoa <|-- Treinador
+
+' Associacoes conceituais persistidas por IDs: nao sao referencias Java.
+' Sem setas: navegabilidade de objetos nao especificada.
+Aluno "1" -- "0..*" Matricula : idAluno
+Treinador "1" -- "0..*" Turma : idTreinador
+Turma "1" -- "0..*" Matricula : idTurma
+Matricula "1" -- "0..*" Pagamento : idMatricula
+
+note bottom of Pagamento
+  Associações persistidas por IDs inteiros.
+  Multiplicidades válidas para registros persistidos.
+  Navegabilidade de objetos não especificada.
+end note
+@enduml

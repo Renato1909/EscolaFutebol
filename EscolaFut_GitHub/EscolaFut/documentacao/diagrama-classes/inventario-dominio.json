@@ -1,0 +1,135 @@
+[
+    {
+        "Class":  "Pessoa",
+        "Abstract":  true,
+        "Source":  "src/modelo/Pessoa.java",
+        "Attributes":  [
+                           "- id: int",
+                           "- nome: String",
+                           "- telefone: String",
+                           "- email: String"
+                       ],
+        "Operations":  [
+                           "# Pessoa()",
+                           "# Pessoa(id: int, nome: String, telefone: String, email: String)",
+                           "+ getId(): int",
+                           "+ setId(id: int): void",
+                           "+ getNome(): String",
+                           "+ setNome(nome: String): void",
+                           "+ getTelefone(): String",
+                           "+ setTelefone(telefone: String): void",
+                           "+ getEmail(): String",
+                           "+ setEmail(email: String): void"
+                       ]
+    },
+    {
+        "Class":  "Aluno",
+        "Abstract":  false,
+        "Source":  "src/modelo/Aluno.java",
+        "Attributes":  [
+                           "- dataNascimento: LocalDate",
+                           "- responsavel: String"
+                       ],
+        "Operations":  [
+                           "+ Aluno()",
+                           "+ getDataNascimento(): LocalDate",
+                           "+ setDataNascimento(dataNascimento: LocalDate): void",
+                           "+ getResponsavel(): String",
+                           "+ setResponsavel(responsavel: String): void"
+                       ]
+    },
+    {
+        "Class":  "Treinador",
+        "Abstract":  false,
+        "Source":  "src/modelo/Treinador.java",
+        "Attributes":  [
+                           "- especialidade: String"
+                       ],
+        "Operations":  [
+                           "+ Treinador()",
+                           "+ getEspecialidade(): String",
+                           "+ setEspecialidade(especialidade: String): void"
+                       ]
+    },
+    {
+        "Class":  "Turma",
+        "Abstract":  false,
+        "Source":  "src/modelo/Turma.java",
+        "Attributes":  [
+                           "- idTurma: int",
+                           "- nome: String",
+                           "- faixaEtaria: String",
+                           "- diaSemana: String",
+                           "- horario: LocalTime",
+                           "- capacidade: int",
+                           "- idTreinador: int"
+                       ],
+        "Operations":  [
+                           "+ getIdTurma(): int",
+                           "+ setIdTurma(idTurma: int): void",
+                           "+ getNome(): String",
+                           "+ setNome(nome: String): void",
+                           "+ getFaixaEtaria(): String",
+                           "+ setFaixaEtaria(faixaEtaria: String): void",
+                           "+ getDiaSemana(): String",
+                           "+ setDiaSemana(diaSemana: String): void",
+                           "+ getHorario(): LocalTime",
+                           "+ setHorario(horario: LocalTime): void",
+                           "+ getCapacidade(): int",
+                           "+ setCapacidade(capacidade: int): void",
+                           "+ getIdTreinador(): int",
+                           "+ setIdTreinador(idTreinador: int): void"
+                       ]
+    },
+    {
+        "Class":  "Matricula",
+        "Abstract":  false,
+        "Source":  "src/modelo/Matricula.java",
+        "Attributes":  [
+                           "- idMatricula: int",
+                           "- dataMatricula: LocalDate",
+                           "- situacao: String",
+                           "- idAluno: int",
+                           "- idTurma: int"
+                       ],
+        "Operations":  [
+                           "+ getIdMatricula(): int",
+                           "+ setIdMatricula(idMatricula: int): void",
+                           "+ getDataMatricula(): LocalDate",
+                           "+ setDataMatricula(dataMatricula: LocalDate): void",
+                           "+ getSituacao(): String",
+                           "+ setSituacao(situacao: String): void",
+                           "+ getIdAluno(): int",
+                           "+ setIdAluno(idAluno: int): void",
+                           "+ getIdTurma(): int",
+                           "+ setIdTurma(idTurma: int): void"
+                       ]
+    },
+    {
+        "Class":  "Pagamento",
+        "Abstract":  false,
+        "Source":  "src/modelo/Pagamento.java",
+        "Attributes":  [
+                           "- idPagamento: int",
+                           "- vencimento: LocalDate",
+                           "- dataPagamento: LocalDate",
+                           "- valor: BigDecimal",
+                           "- situacao: String",
+                           "- idMatricula: int"
+                       ],
+        "Operations":  [
+                           "+ getIdPagamento(): int",
+                           "+ setIdPagamento(idPagamento: int): void",
+                           "+ getVencimento(): LocalDate",
+                           "+ setVencimento(vencimento: LocalDate): void",
+                           "+ getDataPagamento(): LocalDate",
+                           "+ setDataPagamento(dataPagamento: LocalDate): void",
+                           "+ getValor(): BigDecimal",
+                           "+ setValor(valor: BigDecimal): void",
+                           "+ getSituacao(): String",
+                           "+ setSituacao(situacao: String): void",
+                           "+ getIdMatricula(): int",
+                           "+ setIdMatricula(idMatricula: int): void"
+                       ]
+    }
+]

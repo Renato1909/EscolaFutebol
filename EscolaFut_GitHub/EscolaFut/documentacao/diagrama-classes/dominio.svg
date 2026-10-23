@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2430" viewBox="0 0 1600 2430" role="img" aria-labelledby="title desc">
+<title id="title">EscolaFut - Diagrama de classes do dominio</title>
+<desc id="desc">Seis classes Java, atributos e operacoes declarados; duas generalizacoes e quatro associacoes persistidas por IDs.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="537.5" y="42.0" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="bold">EscolaFut — Diagrama de classes do domínio</text>
+<line x1="400.0" y1="680.0" x2="400.0" y2="614.0" stroke="#222" stroke-width="1.4"/>
+<line x1="400.0" y1="614.0" x2="800.0" y2="614.0" stroke="#222" stroke-width="1.4"/>
+<line x1="1220.0" y1="680.0" x2="1220.0" y2="614.0" stroke="#222" stroke-width="1.4"/>
+<line x1="1220.0" y1="614.0" x2="800.0" y2="614.0" stroke="#222" stroke-width="1.4"/>
+<line x1="800.0" y1="614.0" x2="800.0" y2="568.0" stroke="#222" stroke-width="1.4"/>
+<polygon points="800.0,548.0 789.0,568.0 811.0,568.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="400.0" y1="956.0" x2="400.0" y2="1100.0" stroke="#222" stroke-width="1.4"/>
+<text x="412.0" y="981.0" font-family="Arial,Helvetica,sans-serif" font-size="20">1</text>
+<text x="412.0" y="1088.0" font-family="Arial,Helvetica,sans-serif" font-size="20">0..*</text>
+<text x="418.0" y="1034.0" font-family="Arial,Helvetica,sans-serif" font-size="20">idAluno</text>
+<line x1="1220.0" y1="878.0" x2="1220.0" y2="1100.0" stroke="#222" stroke-width="1.4"/>
+<text x="1232.0" y="903.0" font-family="Arial,Helvetica,sans-serif" font-size="20">1</text>
+<text x="1232.0" y="1088.0" font-family="Arial,Helvetica,sans-serif" font-size="20">0..*</text>
+<text x="1238.0" y="995.0" font-family="Arial,Helvetica,sans-serif" font-size="20">idTreinador</text>
+<line x1="740.0" y1="1342.0" x2="900.0" y2="1342.0" stroke="#222" stroke-width="1.4"/>
+<text x="783.5" y="1326.0" font-family="Arial,Helvetica,sans-serif" font-size="20">idTurma</text>
+<text x="750.0" y="1368.0" font-family="Arial,Helvetica,sans-serif" font-size="20">0..*</text>
+<text x="879.0" y="1368.0" font-family="Arial,Helvetica,sans-serif" font-size="20">1</text>
+<line x1="400.0" y1="1584.0" x2="400.0" y2="1770.0" stroke="#222" stroke-width="1.4"/>
+<text x="412.0" y="1609.0" font-family="Arial,Helvetica,sans-serif" font-size="20">1</text>
+<text x="412.0" y="1758.0" font-family="Arial,Helvetica,sans-serif" font-size="20">0..*</text>
+<text x="418.0" y="1683.0" font-family="Arial,Helvetica,sans-serif" font-size="20">idMatricula</text>
+<g id="classe-Pessoa">
+<rect x="460.0" y="90.0" width="680.0" height="458.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="460.0" y1="136.0" x2="1140.0" y2="136.0" stroke="#222" stroke-width="1.4"/>
+<line x1="460.0" y1="264.0" x2="1140.0" y2="264.0" stroke="#222" stroke-width="1.4"/>
+<text x="760.0" y="121.0" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold" font-style="italic">Pessoa</text>
+<text x="474.0" y="163.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- id: int</text>
+<text x="474.0" y="189.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- nome: String</text>
+<text x="474.0" y="215.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- telefone: String</text>
+<text x="474.0" y="241.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- email: String</text>
+<text x="474.0" y="293.0" font-family="Arial,Helvetica,sans-serif" font-size="20"># Pessoa()</text>
+<text x="474.0" y="319.0" font-family="Arial,Helvetica,sans-serif" font-size="20"># Pessoa(id: int, nome: String, telefone: String, email: String)</text>
+<text x="474.0" y="345.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getId(): int</text>
+<text x="474.0" y="371.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setId(id: int): void</text>
+<text x="474.0" y="397.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getNome(): String</text>
+<text x="474.0" y="423.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setNome(nome: String): void</text>
+<text x="474.0" y="449.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getTelefone(): String</text>
+<text x="474.0" y="475.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setTelefone(telefone: String): void</text>
+<text x="474.0" y="501.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getEmail(): String</text>
+<text x="474.0" y="527.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setEmail(email: String): void</text>
+</g>
+<g id="classe-Aluno">
+<rect x="60.0" y="680.0" width="680.0" height="276.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="60.0" y1="726.0" x2="740.0" y2="726.0" stroke="#222" stroke-width="1.4"/>
+<line x1="60.0" y1="802.0" x2="740.0" y2="802.0" stroke="#222" stroke-width="1.4"/>
+<text x="367.5" y="711.0" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold">Aluno</text>
+<text x="74.0" y="753.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- dataNascimento: LocalDate</text>
+<text x="74.0" y="779.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- responsavel: String</text>
+<text x="74.0" y="831.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ Aluno()</text>
+<text x="74.0" y="857.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getDataNascimento(): LocalDate</text>
+<text x="74.0" y="883.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setDataNascimento(dataNascimento: LocalDate): void</text>
+<text x="74.0" y="909.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getResponsavel(): String</text>
+<text x="74.0" y="935.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setResponsavel(responsavel: String): void</text>
+</g>
+<g id="classe-Treinador">
+<rect x="900.0" y="680.0" width="640.0" height="198.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="900.0" y1="726.0" x2="1540.0" y2="726.0" stroke="#222" stroke-width="1.4"/>
+<line x1="900.0" y1="776.0" x2="1540.0" y2="776.0" stroke="#222" stroke-width="1.4"/>
+<text x="1167.0" y="711.0" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold">Treinador</text>
+<text x="914.0" y="753.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- especialidade: String</text>
+<text x="914.0" y="805.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ Treinador()</text>
+<text x="914.0" y="831.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getEspecialidade(): String</text>
+<text x="914.0" y="857.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setEspecialidade(especialidade: String): void</text>
+</g>
+<g id="classe-Turma">
+<rect x="900.0" y="1100.0" width="640.0" height="640.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="900.0" y1="1146.0" x2="1540.0" y2="1146.0" stroke="#222" stroke-width="1.4"/>
+<line x1="900.0" y1="1352.0" x2="1540.0" y2="1352.0" stroke="#222" stroke-width="1.4"/>
+<text x="1185.0" y="1131.0" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold">Turma</text>
+<text x="914.0" y="1173.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idTurma: int</text>
+<text x="914.0" y="1199.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- nome: String</text>
+<text x="914.0" y="1225.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- faixaEtaria: String</text>
+<text x="914.0" y="1251.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- diaSemana: String</text>
+<text x="914.0" y="1277.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- horario: LocalTime</text>
+<text x="914.0" y="1303.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- capacidade: int</text>
+<text x="914.0" y="1329.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idTreinador: int</text>
+<text x="914.0" y="1381.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdTurma(): int</text>
+<text x="914.0" y="1407.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdTurma(idTurma: int): void</text>
+<text x="914.0" y="1433.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getNome(): String</text>
+<text x="914.0" y="1459.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setNome(nome: String): void</text>
+<text x="914.0" y="1485.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getFaixaEtaria(): String</text>
+<text x="914.0" y="1511.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setFaixaEtaria(faixaEtaria: String): void</text>
+<text x="914.0" y="1537.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getDiaSemana(): String</text>
+<text x="914.0" y="1563.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setDiaSemana(diaSemana: String): void</text>
+<text x="914.0" y="1589.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getHorario(): LocalTime</text>
+<text x="914.0" y="1615.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setHorario(horario: LocalTime): void</text>
+<text x="914.0" y="1641.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getCapacidade(): int</text>
+<text x="914.0" y="1667.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setCapacidade(capacidade: int): void</text>
+<text x="914.0" y="1693.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdTreinador(): int</text>
+<text x="914.0" y="1719.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdTreinador(idTreinador: int): void</text>
+</g>
+<g id="classe-Matricula">
+<rect x="60.0" y="1100.0" width="680.0" height="484.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="60.0" y1="1146.0" x2="740.0" y2="1146.0" stroke="#222" stroke-width="1.4"/>
+<line x1="60.0" y1="1300.0" x2="740.0" y2="1300.0" stroke="#222" stroke-width="1.4"/>
+<text x="350.0" y="1131.0" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold">Matricula</text>
+<text x="74.0" y="1173.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idMatricula: int</text>
+<text x="74.0" y="1199.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- dataMatricula: LocalDate</text>
+<text x="74.0" y="1225.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- situacao: String</text>
+<text x="74.0" y="1251.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idAluno: int</text>
+<text x="74.0" y="1277.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idTurma: int</text>
+<text x="74.0" y="1329.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdMatricula(): int</text>
+<text x="74.0" y="1355.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdMatricula(idMatricula: int): void</text>
+<text x="74.0" y="1381.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getDataMatricula(): LocalDate</text>
+<text x="74.0" y="1407.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setDataMatricula(dataMatricula: LocalDate): void</text>
+<text x="74.0" y="1433.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getSituacao(): String</text>
+<text x="74.0" y="1459.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setSituacao(situacao: String): void</text>
+<text x="74.0" y="1485.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdAluno(): int</text>
+<text x="74.0" y="1511.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdAluno(idAluno: int): void</text>
+<text x="74.0" y="1537.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdTurma(): int</text>
+<text x="74.0" y="1563.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdTurma(idTurma: int): void</text>
+</g>
+<g id="classe-Pagamento">
+<rect x="60.0" y="1770.0" width="680.0" height="562.0" fill="white" stroke="#222" stroke-width="1.4"/>
+<line x1="60.0" y1="1816.0" x2="740.0" y2="1816.0" stroke="#222" stroke-width="1.4"/>
+<line x1="60.0" y1="1996.0" x2="740.0" y2="1996.0" stroke="#222" stroke-width="1.4"/>
+<text x="338.5" y="1801.0" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="bold">Pagamento</text>
+<text x="74.0" y="1843.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idPagamento: int</text>
+<text x="74.0" y="1869.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- vencimento: LocalDate</text>
+<text x="74.0" y="1895.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- dataPagamento: LocalDate</text>
+<text x="74.0" y="1921.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- valor: BigDecimal</text>
+<text x="74.0" y="1947.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- situacao: String</text>
+<text x="74.0" y="1973.0" font-family="Arial,Helvetica,sans-serif" font-size="20">- idMatricula: int</text>
+<text x="74.0" y="2025.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdPagamento(): int</text>
+<text x="74.0" y="2051.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdPagamento(idPagamento: int): void</text>
+<text x="74.0" y="2077.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getVencimento(): LocalDate</text>
+<text x="74.0" y="2103.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setVencimento(vencimento: LocalDate): void</text>
+<text x="74.0" y="2129.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getDataPagamento(): LocalDate</text>
+<text x="74.0" y="2155.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setDataPagamento(dataPagamento: LocalDate): void</text>
+<text x="74.0" y="2181.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getValor(): BigDecimal</text>
+<text x="74.0" y="2207.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setValor(valor: BigDecimal): void</text>
+<text x="74.0" y="2233.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getSituacao(): String</text>
+<text x="74.0" y="2259.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setSituacao(situacao: String): void</text>
+<text x="74.0" y="2285.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ getIdMatricula(): int</text>
+<text x="74.0" y="2311.0" font-family="Arial,Helvetica,sans-serif" font-size="20">+ setIdMatricula(idMatricula: int): void</text>
+</g>
+<text x="900.0" y="1910.0" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="bold">Nota de modelagem</text>
+<text x="900.0" y="1948.0" font-family="Arial,Helvetica,sans-serif" font-size="20">Associações persistidas por IDs inteiros.</text>
+<text x="900.0" y="2004.0" font-family="Arial,Helvetica,sans-serif" font-size="20">Multiplicidades válidas para registros persistidos.</text>
+<text x="900.0" y="2060.0" font-family="Arial,Helvetica,sans-serif" font-size="20">Navegabilidade de objetos não especificada.</text>
+<text x="60.0" y="2385.0" font-family="Arial,Helvetica,sans-serif" font-size="17">Pacote modelo | Java + DDL SQL Server | + público  - privado  # protegido</text>
+</svg>

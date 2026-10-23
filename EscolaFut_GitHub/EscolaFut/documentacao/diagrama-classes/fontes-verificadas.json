@@ -1,0 +1,94 @@
+﻿[
+    {
+        "Path":  "src/conexao/Conexao.java",
+        "SHA256":  "AE6C4D2F90EF9C62EFEF7431624FDD207E6350E295D0CFDA435EA132DD8CCB07"
+    },
+    {
+        "Path":  "src/controle/DataInput.java",
+        "SHA256":  "9E0B17F68B5DD114BBCB5C7D5F06672DA0DD531E93518491ACB22D35D507BFDB"
+    },
+    {
+        "Path":  "src/controle/Icones.java",
+        "SHA256":  "8DEF4D45896B174793920B007EF71DCE7100D6838851C13E40B45C15693476D6"
+    },
+    {
+        "Path":  "src/controle/MenuPrincipal.java",
+        "SHA256":  "F2BB021A012EFD9F3463CE2E47C92ED2805F5992BCE90FE355D1B9DF0533F614"
+    },
+    {
+        "Path":  "src/controle/Tela.java",
+        "SHA256":  "6EB4B222183A7F5B327C475FDAC6C2FA60DAF0F26CFE6580AA05020BD7C9FB98"
+    },
+    {
+        "Path":  "src/controle/TelaAluno.java",
+        "SHA256":  "B99C7BAE5BBB79967709940DD3D1A775A03BFB013D41B53D273F546D5FDE9FF4"
+    },
+    {
+        "Path":  "src/controle/TelaMatricula.java",
+        "SHA256":  "F7306EBC65733DB6CC64F6E6DD991B52139EA8E95596AA3F3D09286C6EB0E886"
+    },
+    {
+        "Path":  "src/controle/TelaPagamento.java",
+        "SHA256":  "30E6291BE82BBCAEFBB34BF25B0B92FF3838A609D34402A7D2F93F7568308431"
+    },
+    {
+        "Path":  "src/controle/TelaTreinador.java",
+        "SHA256":  "31D39D17F4F2FA39621458FAB2829EEA8A569F6B37222080E20746C98D09AF22"
+    },
+    {
+        "Path":  "src/controle/TelaTurma.java",
+        "SHA256":  "A090C32EFF4BA7F3A0F1EFA19780DF677AD6EA58F36387A32FFE636517D2B883"
+    },
+    {
+        "Path":  "src/dao/AlunoDAO.java",
+        "SHA256":  "ABD04BFA6B6C5329DDE20FB2B2EE4BBEFEFCD84698FEE7189A2AC7EFB1189A19"
+    },
+    {
+        "Path":  "src/dao/MatriculaDAO.java",
+        "SHA256":  "D0259E5A4277CDBB8532E82AC2EE9D577FC781074B915BDFE376748631505E48"
+    },
+    {
+        "Path":  "src/dao/PagamentoDAO.java",
+        "SHA256":  "AB124FBF526AF829F209B9F2A6A2286D0F1DDBE685905E8F169BFF6379F07145"
+    },
+    {
+        "Path":  "src/dao/TreinadorDAO.java",
+        "SHA256":  "74D777B298F81E23BA6D39FFE24E14EA6A313B53EDA3C542DF4515C5AA94F730"
+    },
+    {
+        "Path":  "src/dao/TurmaDAO.java",
+        "SHA256":  "F68134B47F1A177051DE3BB792758F688949B8218B44A36336880D0241A4C00E"
+    },
+    {
+        "Path":  "src/modelo/Aluno.java",
+        "SHA256":  "F0CB2B3640168339CA69562B4E6089A21AE4AC6CB446EE1FE1211542966DF5F0"
+    },
+    {
+        "Path":  "src/modelo/Matricula.java",
+        "SHA256":  "C4F5B8B22C20E115E57D3010FB5190F697E04DA6AD70401C474233B9B57C8F92"
+    },
+    {
+        "Path":  "src/modelo/Pagamento.java",
+        "SHA256":  "A13D08EBD20BA1EA00FD4ADE7EDA64154820528B29CEA719C5A890661B48A73E"
+    },
+    {
+        "Path":  "src/modelo/Pessoa.java",
+        "SHA256":  "D61C899EA641DA3507BE7EF0FAA42961493CD8636512AB4BFCAF2B669F03EF24"
+    },
+    {
+        "Path":  "src/modelo/Treinador.java",
+        "SHA256":  "2CDEDBE56BDA9F2AF535D24F49BBAA79693E839ACEED60E3D4A80E64672AD537"
+    },
+    {
+        "Path":  "src/modelo/Turma.java",
+        "SHA256":  "232F62CB66DFC696C2683A45BF18BC136C30A397ECA4815100AFA721139EAED2"
+    },
+    {
+        "Path":  "database/escola_futebol.sql",
+        "SHA256":  "211DD322D3C976EE75955E4A65B1DC8F4B4B873B0D1CB5083BB80BF961654278"
+    },
+    {
+        "Path":  "pom.xml",
+        "SHA256":  "8E5BAA84EDA34D10E377A66B2D3C0A17557ED5570838B3C094468537125CF4EB"
+    }
+]

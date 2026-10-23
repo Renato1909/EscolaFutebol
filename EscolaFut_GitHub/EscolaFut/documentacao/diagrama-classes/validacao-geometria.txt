@@ -1,0 +1,6 @@
+Sem sobreposicao entre classes; nenhuma linha de relacionamento atravessa caixas.
+Largura de todos os membros verificada com FontMetrics; nenhum texto cortado.
+Classes: 6; atributos declarados: 25; operacoes declaradas: 54.
+Generalizacoes: 2; associacoes: 4.
+SVG: 1600 x 2430; PNG: 4800 x 7290; densidade: 300 dpi.
+Elementos de texto SVG: 103. SVG e PNG gerados da mesma leitura do PlantUML.

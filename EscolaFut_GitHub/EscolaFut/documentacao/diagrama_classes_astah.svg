@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1430" viewBox="0 0 1680 1430" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama de classes UML — EscolaFut_SQLServer</title>
+  <desc id="desc">Diagrama UML monocromático no estilo de uma ferramenta CASE, com classes, atributos, operações e relacionamentos.</desc>
+  <defs>
+    <marker id="association" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#222"/></marker>
+    <marker id="generalization" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L10 6 L1 11 Z" fill="#fff" stroke="#222" stroke-width="1.2"/></marker>
+    <marker id="dependency" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#222" stroke-width="1.2"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#111}
+      .diagram-title{font-size:24px;font-weight:bold}.hint{font-size:13px;fill:#333}
+      .frame{fill:none;stroke:#777;stroke-width:1}.frame-title{font-size:15px;font-weight:bold;fill:#333}
+      .class{fill:#fff;stroke:#222;stroke-width:1.4}.class-head{fill:#f2f2f2;stroke:#222;stroke-width:1.4}
+      .name{font-size:16px;font-weight:bold}.stereo{font-size:12px;font-style:italic}.member{font-size:13px}
+      .rel{fill:none;stroke:#222;stroke-width:1.4}.dep{fill:none;stroke:#222;stroke-width:1.3;stroke-dasharray:7 5}
+      .label{font-size:12px}.mult{font-size:12px;font-weight:bold}
+    </style>
+  </defs>
+  <rect width="1680" height="1430" fill="#fff"/>
+  <text x="40" y="42" class="diagram-title">EscolaFut_SQLServer — Class Diagram</text>
+  <text x="40" y="66" class="hint">UML class diagram · domain, DAO, connection, and Swing interface</text>
+
+  <rect x="25" y="88" width="1630" height="470" class="frame"/>
+  <text x="40" y="111" class="frame-title">Domain model</text>
+
+  <!-- Generalization: Aluno and Treinador inherit Pessoa. -->
+  <path d="M170 290 V250 H325 V225" class="rel" marker-end="url(#generalization)"/>
+  <path d="M480 290 V250 H325" class="rel" marker-end="url(#generalization)"/>
+
+  <!-- Pessoa -->
+  <rect x="175" y="125" width="300" height="100" class="class"/>
+  <rect x="175" y="125" width="300" height="42" class="class-head"/>
+  <text x="325" y="143" text-anchor="middle" class="stereo">&lt;&lt;abstract&gt;&gt;</text>
+  <text x="325" y="160" text-anchor="middle" class="name">Pessoa</text>
+  <line x1="175" y1="167" x2="475" y2="167" class="rel"/>
+  <text x="187" y="190" class="member">- id: int</text><text x="300" y="190" class="member">- nome: String</text>
+  <text x="187" y="211" class="member">- telefone: String</text><text x="325" y="211" class="member">- email: String</text>
+
+  <!-- Domain classes -->
+  <g>
+    <rect x="40" y="290" width="260" height="190" class="class"/><rect x="40" y="290" width="260" height="34" class="class-head"/>
+    <text x="170" y="313" text-anchor="middle" class="name">Aluno</text><line x1="40" y1="324" x2="300" y2="324" class="rel"/>
+    <text x="52" y="347" class="member">- dataNascimento: LocalDate</text><text x="52" y="369" class="member">- responsavel: String</text><line x1="40" y1="390" x2="300" y2="390" class="rel"/>
+    <text x="52" y="414" class="member">+ get/setId(): int</text><text x="52" y="436" class="member">+ get/setNome(): String</text><text x="52" y="458" class="member">+ get/setResponsavel(): String</text>
+  </g>
+  <g>
+    <rect x="350" y="290" width="260" height="190" class="class"/><rect x="350" y="290" width="260" height="34" class="class-head"/>
+    <text x="480" y="313" text-anchor="middle" class="name">Treinador</text><line x1="350" y1="324" x2="610" y2="324" class="rel"/>
+    <text x="362" y="347" class="member">- especialidade: String</text><line x1="350" y1="390" x2="610" y2="390" class="rel"/>
+    <text x="362" y="414" class="member">+ get/setId(): int</text><text x="362" y="436" class="member">+ get/setNome(): String</text><text x="362" y="458" class="member">+ get/setEspecialidade(): String</text>
+  </g>
+  <g>
+    <rect x="660" y="290" width="260" height="190" class="class"/><rect x="660" y="290" width="260" height="34" class="class-head"/>
+    <text x="790" y="313" text-anchor="middle" class="name">Turma</text><line x1="660" y1="324" x2="920" y2="324" class="rel"/>
+    <text x="672" y="347" class="member">- nome: String</text><text x="672" y="369" class="member">- faixaEtaria: String</text><text x="672" y="391" class="member">- diaSemana: String</text><text x="672" y="413" class="member">- horario: LocalTime</text><text x="672" y="435" class="member">- capacidade: int</text><text x="672" y="457" class="member">- idTreinador: int</text>
+  </g>
+  <g>
+    <rect x="970" y="290" width="260" height="190" class="class"/><rect x="970" y="290" width="260" height="34" class="class-head"/>
+    <text x="1100" y="313" text-anchor="middle" class="name">Matricula</text><line x1="970" y1="324" x2="1230" y2="324" class="rel"/>
+    <text x="982" y="347" class="member">- dataMatricula: LocalDate</text><text x="982" y="369" class="member">- situacao: String</text><text x="982" y="391" class="member">- idAluno: int</text><text x="982" y="413" class="member">- idTurma: int</text>
+  </g>
+  <g>
+    <rect x="1280" y="290" width="260" height="190" class="class"/><rect x="1280" y="290" width="260" height="34" class="class-head"/>
+    <text x="1410" y="313" text-anchor="middle" class="name">Pagamento</text><line x1="1280" y1="324" x2="1540" y2="324" class="rel"/>
+    <text x="1292" y="347" class="member">- vencimento: LocalDate</text><text x="1292" y="369" class="member">- dataPagamento: LocalDate?</text><text x="1292" y="391" class="member">- valor: BigDecimal</text><text x="1292" y="413" class="member">- situacao: String</text><text x="1292" y="435" class="member">- idMatricula: int</text>
+  </g>
+
+  <!-- Associations and multiplicities -->
+  <path d="M610 365 H660" class="rel" marker-end="url(#association)"/><text x="613" y="351" class="label">orienta</text><text x="614" y="384" class="mult">1</text><text x="638" y="384" class="mult">0..*</text>
+  <path d="M920 365 H970" class="rel" marker-end="url(#association)"/><text x="923" y="351" class="label">recebe</text><text x="923" y="384" class="mult">1</text><text x="947" y="384" class="mult">0..*</text>
+  <path d="M1230 365 H1280" class="rel" marker-end="url(#association)"/><text x="1233" y="351" class="label">gera</text><text x="1233" y="384" class="mult">1</text><text x="1257" y="384" class="mult">0..*</text>
+  <path d="M170 480 V530 H1100 V480" class="rel" marker-end="url(#association)"/><text x="635" y="525" text-anchor="middle" class="label">Aluno 1 — 0..* Matricula</text>
+
+  <!-- Persistence -->
+  <rect x="25" y="580" width="1630" height="310" class="frame"/><text x="40" y="604" class="frame-title">Persistence layer</text>
+  <g>
+    <rect x="40" y="630" width="260" height="170" class="class"/><rect x="40" y="630" width="260" height="34" class="class-head"/><text x="170" y="653" text-anchor="middle" class="name">AlunoDAO</text><line x1="40" y1="664" x2="300" y2="664" class="rel"/><text x="52" y="687" class="member">- conexao: Conexao</text><line x1="40" y1="710" x2="300" y2="710" class="rel"/><text x="52" y="733" class="member">+ inserir(Aluno): void</text><text x="52" y="755" class="member">+ atualizar/excluir(): void</text><text x="52" y="777" class="member">+ listar(String): List&lt;Aluno&gt;</text>
+    <rect x="350" y="630" width="260" height="170" class="class"/><rect x="350" y="630" width="260" height="34" class="class-head"/><text x="480" y="653" text-anchor="middle" class="name">TreinadorDAO</text><line x1="350" y1="664" x2="610" y2="664" class="rel"/><text x="362" y="687" class="member">- conexao: Conexao</text><line x1="350" y1="710" x2="610" y2="710" class="rel"/><text x="362" y="733" class="member">+ inserir(Treinador): void</text><text x="362" y="755" class="member">+ atualizar/excluir(): void</text><text x="362" y="777" class="member">+ listar(String): List&lt;Treinador&gt;</text>
+    <rect x="660" y="630" width="260" height="170" class="class"/><rect x="660" y="630" width="260" height="34" class="class-head"/><text x="790" y="653" text-anchor="middle" class="name">TurmaDAO</text><line x1="660" y1="664" x2="920" y2="664" class="rel"/><text x="672" y="687" class="member">- conexao: Conexao</text><line x1="660" y1="710" x2="920" y2="710" class="rel"/><text x="672" y="733" class="member">+ inserir(Turma): void</text><text x="672" y="755" class="member">+ atualizar/excluir(): void</text><text x="672" y="777" class="member">+ listar(): List&lt;Turma&gt;</text>
+    <rect x="970" y="630" width="260" height="170" class="class"/><rect x="970" y="630" width="260" height="34" class="class-head"/><text x="1100" y="653" text-anchor="middle" class="name">MatriculaDAO</text><line x1="970" y1="664" x2="1230" y2="664" class="rel"/><text x="982" y="687" class="member">- conexao: Conexao</text><line x1="970" y1="710" x2="1230" y2="710" class="rel"/><text x="982" y="733" class="member">+ inserir(Matricula): void</text><text x="982" y="755" class="member">+ atualizar/excluir(): void</text><text x="982" y="777" class="member">+ listar(): List&lt;Matricula&gt;</text>
+    <rect x="1280" y="630" width="260" height="170" class="class"/><rect x="1280" y="630" width="260" height="34" class="class-head"/><text x="1410" y="653" text-anchor="middle" class="name">PagamentoDAO</text><line x1="1280" y1="664" x2="1540" y2="664" class="rel"/><text x="1292" y="687" class="member">- conexao: Conexao</text><line x1="1280" y1="710" x2="1540" y2="710" class="rel"/><text x="1292" y="733" class="member">+ inserir(Pagamento): void</text><text x="1292" y="755" class="member">+ atualizar/excluir(): void</text><text x="1292" y="777" class="member">+ listar(): List&lt;Pagamento&gt;</text>
+  </g>
+  <rect x="670" y="820" width="300" height="54" class="class"/><text x="820" y="843" text-anchor="middle" class="name">Conexao</text><text x="685" y="863" class="member">+ conecta/disconecta · preparaSQL</text>
+
+  <!-- UI -->
+  <rect x="25" y="910" width="1630" height="470" class="frame"/><text x="40" y="934" class="frame-title">Swing user interface</text>
+  <rect x="690" y="955" width="260" height="90" class="class"/><rect x="690" y="955" width="260" height="34" class="class-head"/><text x="820" y="978" text-anchor="middle" class="name">MenuPrincipal</text><line x1="690" y1="989" x2="950" y2="989" class="rel"/><text x="704" y="1012" class="member">+ abre telas de cadastro</text><text x="704" y="1032" class="member">+ main(String[]): void</text>
+  <g>
+    <rect x="40" y="1110" width="260" height="180" class="class"/><rect x="40" y="1110" width="260" height="34" class="class-head"/><text x="170" y="1133" text-anchor="middle" class="name">TelaAluno</text><line x1="40" y1="1144" x2="300" y2="1144" class="rel"/><text x="52" y="1167" class="member">- conexao: Conexao</text><text x="52" y="1189" class="member">- dao: AlunoDAO</text><line x1="40" y1="1210" x2="300" y2="1210" class="rel"/><text x="52" y="1234" class="member">+ CRUD de alunos</text><text x="52" y="1256" class="member">+ DataInput.parse()</text>
+    <rect x="350" y="1110" width="260" height="180" class="class"/><rect x="350" y="1110" width="260" height="34" class="class-head"/><text x="480" y="1133" text-anchor="middle" class="name">TelaTreinador</text><line x1="350" y1="1144" x2="610" y2="1144" class="rel"/><text x="362" y="1167" class="member">- conexao: Conexao</text><text x="362" y="1189" class="member">- dao: TreinadorDAO</text><line x1="350" y1="1210" x2="610" y2="1210" class="rel"/><text x="362" y="1234" class="member">+ CRUD de treinadores</text>
+    <rect x="660" y="1110" width="260" height="180" class="class"/><rect x="660" y="1110" width="260" height="34" class="class-head"/><text x="790" y="1133" text-anchor="middle" class="name">TelaTurma</text><line x1="660" y1="1144" x2="920" y2="1144" class="rel"/><text x="672" y="1167" class="member">- conexao: Conexao</text><text x="672" y="1189" class="member">- dao: TurmaDAO</text><line x1="660" y1="1210" x2="920" y2="1210" class="rel"/><text x="672" y="1234" class="member">+ CRUD de turmas</text>
+    <rect x="970" y="1110" width="260" height="180" class="class"/><rect x="970" y="1110" width="260" height="34" class="class-head"/><text x="1100" y="1133" text-anchor="middle" class="name">TelaMatricula</text><line x1="970" y1="1144" x2="1230" y2="1144" class="rel"/><text x="982" y="1167" class="member">- conexao: Conexao</text><text x="982" y="1189" class="member">- dao: MatriculaDAO</text><line x1="970" y1="1210" x2="1230" y2="1210" class="rel"/><text x="982" y="1234" class="member">+ CRUD de matrículas</text><text x="982" y="1256" class="member">+ DataInput.parse()</text>
+    <rect x="1280" y="1110" width="260" height="180" class="class"/><rect x="1280" y="1110" width="260" height="34" class="class-head"/><text x="1410" y="1133" text-anchor="middle" class="name">TelaPagamento</text><line x1="1280" y1="1144" x2="1540" y2="1144" class="rel"/><text x="1292" y="1167" class="member">- conexao: Conexao</text><text x="1292" y="1189" class="member">- dao: PagamentoDAO</text><line x1="1280" y1="1210" x2="1540" y2="1210" class="rel"/><text x="1292" y="1234" class="member">+ CRUD de pagamentos</text><text x="1292" y="1256" class="member">+ DataInput.parse()</text>
+  </g>
+  <path d="M820 1045 V1070 H170 V1110" class="dep" marker-end="url(#dependency)"/><path d="M820 1070 H480 V1110" class="dep" marker-end="url(#dependency)"/><path d="M820 1070 V1110" class="dep" marker-end="url(#dependency)"/><path d="M820 1070 H1100 V1110" class="dep" marker-end="url(#dependency)"/><path d="M820 1070 H1410 V1110" class="dep" marker-end="url(#dependency)"/>
+  <rect x="40" y="1320" width="260" height="42" class="class"/><text x="170" y="1347" text-anchor="middle" class="name">DataInput · date utility</text>
+  <text x="350" y="1347" class="hint">Dashed arrows indicate UI dependencies · Multiplicities correspond to SQL Server foreign keys.</text>
+</svg>
