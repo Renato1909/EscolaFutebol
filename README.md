@@ -140,3 +140,9 @@ Consulte também [`README_INTELLIJ.md`](README_INTELLIJ.md) para orientações e
 ## Escopo
 
 Esta versão é uma aplicação desktop para fins acadêmicos e de demonstração. Não inclui portal web, aplicativo móvel nem integração real com serviços bancários ou fiscais. Para uso em produção, seriam necessários requisitos adicionais de segurança, testes, gestão de configuração e operação.
+
+## Licença
+
+O código que escrevi neste repositório está sob a licença MIT (ver `LICENSE`).
+
+A licença não cobre a biblioteca `lib/mssql-jdbc-13.6.0.jre11.jar`, o driver JDBC da Microsoft com licença própria, nem o material de aula que documenta o projeto. Se reutilizares este repositório, traz o driver pelo teu próprio gestor de dependências.
